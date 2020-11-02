@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Api\Api.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Entidades\Sesion.cs" />
     <Compile Include="frmInicio.cs">
       <SubType>Form</SubType>
     </Compile>

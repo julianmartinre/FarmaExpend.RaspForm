@@ -83,5 +83,39 @@ namespace FarmaExpend.RaspForm
                 Console.WriteLine(ex.Message.ToString());
             }
         }
+        public string GenerarToken(string u, string p)
+        {
+            var url = $"https://api.farmaexpend.com/api/Access/loginRasp?u=" + u + " &p=" + p;
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            string token = "";
+            try
+            {
+                using (WebResponse response = request.GetResponse())
+                {
+                    using (Stream strReader = response.GetResponseStream())
+                    {
+                        if (strReader != null)
+                        {
+                            using (StreamReader objReader = new StreamReader(strReader))
+                            {
+                                string responseBody = objReader.ReadToEnd();
+                                Reply oR = new Reply();
+                                oR = JsonConvert.DeserializeObject<Reply>(responseBody);
+                                if (oR.data != null) { token = oR.data.ToString(); }                              
+                                Console.WriteLine(responseBody);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                // Handle error
+            }
+            return token;
+        }
     }
 }

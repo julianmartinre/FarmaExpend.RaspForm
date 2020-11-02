@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FarmaExpend.RaspForm.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace FarmaExpend.RaspForm
     {
         MaquinaApiBE m = new MaquinaApiBE();
         int index = -1;
+        Sesion sesion = Sesion.GetInstance();
         public frmProductos()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace FarmaExpend.RaspForm
         private void frmProductos_Load(object sender, EventArgs e)
         {
             Api a = new Api();
-            m = a.GetMachine(6, "7b23a0fd-8105-492b-9fc6-2765f0e6e5b1");
+            m = a.GetMachine(sesion.nro_maquina, sesion.token);
             p1.Load(m.productos[0].url_img);
             p1Precio.Text = m.productos[0].precio.ToString();
             p2.Load(m.productos[1].url_img);
@@ -45,7 +47,7 @@ namespace FarmaExpend.RaspForm
         {
             if (index>= 0) {
                 Api a = new Api();
-                a.RegisterSale(m.nro_maquina, "7b23a0fd-8105-492b-9fc6-2765f0e6e5b1", m.productos[index].nro_producto, m.productos[index].precio);
+                a.RegisterSale(m.nro_maquina, sesion.token, m.productos[index].nro_producto, m.productos[index].precio);
             } 
         }
     }
