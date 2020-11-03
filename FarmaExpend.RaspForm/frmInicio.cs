@@ -22,7 +22,7 @@ namespace FarmaExpend.RaspForm
         {
             //pbLogo.Load("logofe.png");
             Sesion sesion = Sesion.GetInstance();
-            sesion.login("a", "a", 20);
+            sesion.login("a", "a", 6);
             Api a = new Api();
             sesion.token = a.GenerarToken(sesion.username, sesion.password);
         }
