@@ -44,6 +44,8 @@
             // 
             // btnIngresar
             // 
+            this.btnIngresar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.Black;
             this.btnIngresar.Location = new System.Drawing.Point(122, 220);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(221, 61);
@@ -56,7 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.PaleGreen;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(480, 320);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.pbLogo);

@@ -20,7 +20,7 @@ namespace FarmaExpend.RaspForm
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            //pbLogo.Load("logofe.png");
+            pbLogo.Load("https://i.ibb.co/hW1F3Ch/farmaexpendlogo.png");
             Sesion sesion = Sesion.GetInstance();
             sesion.login("a", "a", 6);
             Api a = new Api();
